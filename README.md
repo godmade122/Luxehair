@@ -277,3 +277,5 @@ For technical support or inquiries:
 ---
 
 **Made with ❤️ for beautiful hair lovers everywhere** 💇‍♀️✨
+#   L u x e h a i r  
+ 
