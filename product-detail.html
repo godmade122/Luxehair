@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - LuxeHair</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <span>LuxeHair</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="shop.html" class="icon-link" title="Search">
+                    <i class="fas fa-search"></i>
+                </a>
+                <a href="register.html" class="icon-link" title="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link cart-icon" title="Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="register.html">Account</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="shop.html">Shop</a>
+        <span>/</span>
+        <span id="productBreadcrumb">Product</span>
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-wrapper">
+                <!-- Product Images -->
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="mainImage" src="img/Body Wave Extensions.jpg" alt="Product" loading="lazy">
+                        <span class="badge" id="productBadge">New</span>
+                    </div>
+                    <div class="thumbnail-images" id="thumbnails">
+                        <!-- Thumbnails will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Product Information -->
+                <div class="product-information">
+                    <div class="product-meta">
+                        <span class="category" id="productCategory">Extensions</span>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5 (128 reviews)</span>
+                        </div>
+                    </div>
+
+                    <h1 id="productName">Product Name</h1>
+
+                    <div class="product-price">
+                        <span class="price" id="productPrice">₦45,000</span>
+                        <span class="original-price" id="originalPrice">₦55,000</span>
+                        <span class="discount" id="discount">-18%</span>
+                    </div>
+
+                    <p class="product-description" id="productDescription">
+                        Premium quality hair extensions made from 100% human hair. Perfect for adding length and volume to your natural hair.
+                    </p>
+
+                    <!-- Product Specs -->
+                    <div class="product-specs-detail">
+                        <h4>Product Specifications</h4>
+                        <ul id="specsList">
+                            <li><strong>Hair Type:</strong> <span id="hairType">100% Human Hair</span></li>
+                            <li><strong>Origin:</strong> <span id="origin">Brazilian</span></li>
+                            <li><strong>Texture:</strong> <span id="texture">Body Wave</span></li>
+                            <li><strong>Available Lengths:</strong> <span id="lengths">12"-28"</span></li>
+                            <li><strong>Weight:</strong> <span id="weight">100g</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Options -->
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label for="length">Select Length</label>
+                            <select id="lengthSelect" class="option-select">
+                                <option value="">Choose a length...</option>
+                                <option value="12">12 inches</option>
+                                <option value="14">14 inches</option>
+                                <option value="16">16 inches</option>
+                                <option value="18">18 inches</option>
+                                <option value="20">20 inches</option>
+                                <option value="22">22 inches</option>
+                                <option value="24">24 inches</option>
+                                <option value="26">26 inches</option>
+                                <option value="28">28 inches</option>
+                                <option value="30">30 inches</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label for="color">Select Color (Optional)</label>
+                            <select id="colorSelect" class="option-select">
+                                <option value="natural">Natural Black</option>
+                                <option value="brown">Dark Brown</option>
+                                <option value="light-brown">Light Brown</option>
+                                <option value="blonde">Blonde</option>
+                                <option value="highlighted">Highlighted</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label for="quantity">Quantity</label>
+                            <div class="quantity-selector">
+                                <button class="qty-btn" id="decreaseQty">−</button>
+                                <input type="number" id="quantityInput" value="1" min="1" max="10">
+                                <button class="qty-btn" id="increaseQty">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add to Cart -->
+                    <div class="action-buttons">
+                        <button class="add-to-cart-btn" id="addToCartBtn">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn" id="wishlistBtn">
+                            <i class="far fa-heart"></i> Wishlist
+                        </button>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="trust-badges">
+                        <div class="badge-item">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Free Shipping on Orders Over ₦50,000</span>
+                        </div>
+                        <div class="badge-item">
+                            <i class="fas fa-undo"></i>
+                            <span>30-Day Money Back Guarantee</span>
+                        </div>
+                        <div class="badge-item">
+                            <i class="fas fa-lock"></i>
+                            <span>Secure Checkout</span>
+                        </div>
+                    </div>
+
+                    <!-- Share -->
+                    <div class="share-product">
+                        <p>Share:</p>
+                        <a href="#" class="share-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="share-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="share-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="share-link"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs Section -->
+            <div class="product-tabs">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="description">Description</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews</button>
+                    <button class="tab-btn" data-tab="faq">FAQ</button>
+                    <button class="tab-btn" data-tab="care">Care Guide</button>
+                </div>
+
+                <!-- Description Tab -->
+                <div class="tab-content active" id="description">
+                    <h3>Product Description</h3>
+                    <p id="fullDescription">
+                        Transform your look with our premium Body Wave Extensions. Made from 100% virgin human hair, these extensions offer a natural, silky appearance that blends seamlessly with your own hair. Perfect for adding length, volume, or creating stunning styles.
+                    </p>
+                    <h4>Key Features:</h4>
+                    <ul id="featuresList">
+                        <li>100% Premium Human Hair</li>
+                        <li>Silky smooth texture</li>
+                        <li>Can be dyed and styled</li>
+                        <li>Long-lasting with proper care</li>
+                        <li>Comfortable and lightweight</li>
+                        <li>Blends naturally with all hair types</li>
+                    </ul>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div class="tab-content" id="reviews">
+                    <h3>Customer Reviews</h3>
+                    <div class="reviews-container">
+                        <div class="review-summary">
+                            <div class="rating-summary">
+                                <div class="rating-score">4.5</div>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <p>Based on 128 reviews</p>
+                            </div>
+                            <div class="rating-bars" id="ratingBars">
+                                <!-- Rating bars will be populated -->
+                            </div>
+                        </div>
+
+                        <div class="reviews-list" id="reviewsList">
+                            <!-- Reviews will be loaded here -->
+                        </div>
+
+                        <button class="write-review-btn">Write a Review</button>
+                    </div>
+                </div>
+
+                <!-- FAQ Tab -->
+                <div class="tab-content" id="faq">
+                    <h3>Frequently Asked Questions</h3>
+                    <div class="faq-items" id="faqItems">
+                        <!-- FAQs will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Care Guide Tab -->
+                <div class="tab-content" id="care">
+                    <h3>Hair Care Guide</h3>
+                    <div class="care-guide">
+                        <h4>How to Care for Your Extensions:</h4>
+                        <ol>
+                            <li><strong>Washing:</strong> Use sulfate-free shampoo and lukewarm water. Wash gently from top to bottom.</li>
+                            <li><strong>Conditioning:</strong> Apply deep conditioner weekly to maintain softness and shine.</li>
+                            <li><strong>Drying:</strong> Air dry or use low heat settings. Avoid high heat directly on extensions.</li>
+                            <li><strong>Styling:</strong> Use heat protectant spray before styling with hot tools.</li>
+                            <li><strong>Storage:</strong> Keep extensions in a cool, dry place when not in use.</li>
+                            <li><strong>Detangling:</strong> Always detangle from bottom up using a wide-tooth comb.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <section class="related-products">
+                <h2>You Might Also Like</h2>
+                <div class="products-grid" id="relatedProducts">
+                    <!-- Related products will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LuxeHair</h3>
+                    <p>Bringing luxury hair to every woman across Nigeria</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/2348012345678" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +234 801 234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@luxehair.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxeHair. All rights reserved.</p>
+                <p>Crafted with <i class="fas fa-heart"></i> for beautiful hair lovers everywhere</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/2348012345678?text=Hello%20LuxeHair!%20I%20need%20help" class="whatsapp-button" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/products-data.js"></script>
+    <script src="js/product-detail.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

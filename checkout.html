@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - LuxeHair</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <span>LuxeHair</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="shop.html" class="icon-link" title="Search">
+                    <i class="fas fa-search"></i>
+                </a>
+                <a href="register.html" class="icon-link" title="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link cart-icon" title="Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="register.html">Account</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Checkout</h1>
+        <p>Complete Your Purchase</p>
+    </section>
+
+    <!-- Checkout Content -->
+    <section class="checkout-section">
+        <div class="container">
+            <!-- Progress Steps -->
+            <div class="checkout-steps">
+                <div class="step active">
+                    <span class="step-number">1</span>
+                    <span class="step-label">Shipping</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <span class="step-label">Payment</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Confirmation</span>
+                </div>
+            </div>
+
+            <div class="checkout-wrapper">
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <!-- Shipping Information -->
+                    <form class="checkout-form-section" id="shippingForm">
+                        <h2>Shipping Information</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" placeholder="Jane" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" placeholder="jane@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" placeholder="+234 901 234 5678" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Street Address *</label>
+                            <input type="text" id="address" placeholder="123 Main Street" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" placeholder="Lagos" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State *</label>
+                                <input type="text" id="state" placeholder="Lagos State" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="zip">Postal Code</label>
+                                <input type="text" id="zip" placeholder="100001">
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <select id="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="NG" selected>Nigeria</option>
+                                    <option value="US">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="CA">Canada</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Method -->
+                        <div class="shipping-methods">
+                            <h3>Shipping Method</h3>
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping" value="standard" checked>
+                                <span class="shipping-option-text">
+                                    <span class="shipping-name">Standard Delivery</span>
+                                    <span class="shipping-price">₦2,500</span>
+                                </span>
+                                <span class="shipping-description">5-7 business days</span>
+                            </label>
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping" value="express">
+                                <span class="shipping-option-text">
+                                    <span class="shipping-name">Express Delivery</span>
+                                    <span class="shipping-price">₦5,000</span>
+                                </span>
+                                <span class="shipping-description">2-3 business days</span>
+                            </label>
+                            <label class="shipping-option">
+                                <input type="radio" name="shipping" value="overnight">
+                                <span class="shipping-option-text">
+                                    <span class="shipping-name">Overnight Delivery</span>
+                                    <span class="shipping-price">₦10,000</span>
+                                </span>
+                                <span class="shipping-description">Next business day</span>
+                            </label>
+                        </div>
+
+                        <label class="checkbox-group">
+                            <input type="checkbox" id="billingSame">
+                            <span>Billing address same as shipping address</span>
+                        </label>
+                    </form>
+
+                    <!-- Payment Information -->
+                    <form class="checkout-form-section" id="paymentForm">
+                        <h2>Payment Method</h2>
+                        
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="card" checked>
+                                <span class="payment-icon"><i class="fas fa-credit-card"></i></span>
+                                <span>Credit/Debit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="bank">
+                                <span class="payment-icon"><i class="fas fa-university"></i></span>
+                                <span>Bank Transfer</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="paystack">
+                                <span class="payment-icon"><i class="fas fa-mobile-alt"></i></span>
+                                <span>Paystack/Stripe</span>
+                            </label>
+                        </div>
+
+                        <!-- Card Payment -->
+                        <div class="payment-details" id="cardPayment">
+                            <div class="form-group">
+                                <label for="cardName">Cardholder Name *</label>
+                                <input type="text" id="cardName" placeholder="Jane Doe" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number *</label>
+                                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiry">Expiry Date *</label>
+                                    <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV *</label>
+                                    <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bank Transfer -->
+                        <div class="payment-details" id="bankPayment" style="display: none;">
+                            <div class="bank-info">
+                                <h4>Bank Account Details</h4>
+                                <p><strong>Bank Name:</strong> First Bank Nigeria</p>
+                                <p><strong>Account Number:</strong> 1234567890</p>
+                                <p><strong>Account Name:</strong> LuxeHair Stores</p>
+                                <p><strong>Routing Number:</strong> 058110001</p>
+                                <p class="note">Please use your order number as the payment reference.</p>
+                            </div>
+                        </div>
+
+                        <!-- Paystack -->
+                        <div class="payment-details" id="paystackPayment" style="display: none;">
+                            <p>You will be redirected to Paystack to complete your payment securely.</p>
+                        </div>
+
+                        <label class="checkbox-group">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span>I agree to the terms and conditions</span>
+                        </label>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <aside class="checkout-summary">
+                    <h3>Order Summary</h3>
+                    
+                    <div class="summary-items" id="checkoutItems">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="checkoutSubtotal">₦0</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="checkoutShipping">₦2,500</span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Tax</span>
+                        <span id="checkoutTax">₦0</span>
+                    </div>
+
+                    <div class="summary-row discount" id="checkoutDiscount" style="display: none;">
+                        <span>Discount</span>
+                        <span id="checkoutDiscountAmount">-₦0</span>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="checkoutTotal">₦0</span>
+                    </div>
+
+                    <button class="place-order-btn" id="placeOrderBtn">Place Order</button>
+
+                    <div class="security-badges">
+                        <i class="fas fa-lock"></i>
+                        <p>Your payment information is secure and encrypted.</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LuxeHair</h3>
+                    <p>Bringing luxury hair to every woman across Nigeria</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/2348012345678" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +234 801 234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@luxehair.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxeHair. All rights reserved.</p>
+                <p>Crafted with <i class="fas fa-heart"></i> for beautiful hair lovers everywhere</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/2348012345678?text=Hello%20LuxeHair!%20I%20need%20help" class="whatsapp-button" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/products-data.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - LuxeHair</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <span>LuxeHair</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="shop.html" class="icon-link" title="Search">
+                    <i class="fas fa-search"></i>
+                </a>
+                <a href="register.html" class="icon-link" title="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link cart-icon" title="Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="register.html">Account</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </div>
+
+    <!-- Auth Section -->
+    <section class="auth-section">
+        <div class="auth-container">
+            <!-- Registration Form -->
+            <div class="auth-box register-box active" id="registerBox">
+                <div class="auth-header">
+                    <h2>Create Your Account</h2>
+                    <p>Join LuxeHair and enjoy exclusive offers</p>
+                </div>
+
+                <form class="auth-form" id="registerForm">
+                    <div class="form-group">
+                        <label for="regFullName">Full Name *</label>
+                        <input type="text" id="regFullName" placeholder="Jane Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regEmail">Email Address *</label>
+                        <input type="email" id="regEmail" placeholder="jane@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regPhone">Phone Number *</label>
+                        <input type="tel" id="regPhone" placeholder="+234 901 234 5678" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regPassword">Password *</label>
+                        <div class="password-input">
+                            <input type="password" id="regPassword" placeholder="Minimum 8 characters" required>
+                            <i class="fas fa-eye toggle-password" id="toggleRegPassword"></i>
+                        </div>
+                        <small>Password must contain at least 8 characters, 1 uppercase, 1 number, and 1 special character.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regConfirmPassword">Confirm Password *</label>
+                        <div class="password-input">
+                            <input type="password" id="regConfirmPassword" placeholder="Confirm your password" required>
+                            <i class="fas fa-eye toggle-password" id="toggleConfirmPassword"></i>
+                        </div>
+                    </div>
+
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></span>
+                    </label>
+
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="subscribeNewsletter">
+                        <span>Subscribe me to LuxeHair newsletter for exclusive offers</span>
+                    </label>
+
+                    <button type="submit" class="auth-button">Create Account</button>
+
+                    <div class="auth-divider">OR</div>
+
+                    <div class="social-login">
+                        <button type="button" class="social-btn facebook">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </button>
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                    </div>
+
+                    <p class="auth-link">
+                        Already have an account? <a href="#" id="toggleLogin">Sign In</a>
+                    </p>
+                </form>
+            </div>
+
+            <!-- Login Form -->
+            <div class="auth-box login-box" id="loginBox">
+                <div class="auth-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to your LuxeHair account</p>
+                </div>
+
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address *</label>
+                        <input type="email" id="loginEmail" placeholder="jane@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password *</label>
+                        <div class="password-input">
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                            <i class="fas fa-eye toggle-password" id="toggleLoginPassword"></i>
+                        </div>
+                    </div>
+
+                    <label class="checkbox-group">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+
+                    <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+
+                    <button type="submit" class="auth-button">Sign In</button>
+
+                    <div class="auth-divider">OR</div>
+
+                    <div class="social-login">
+                        <button type="button" class="social-btn facebook">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </button>
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                    </div>
+
+                    <p class="auth-link">
+                        Don't have an account? <a href="#" id="toggleRegister">Sign Up</a>
+                    </p>
+                </form>
+            </div>
+
+            <!-- Decorative Side -->
+            <div class="auth-side">
+                <div class="auth-side-content">
+                    <h3>Welcome to LuxeHair</h3>
+                    <p>Your destination for premium hair extensions and wigs</p>
+                    <ul class="benefits">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Exclusive member discounts</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Early access to new collections</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Faster checkout process</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Track your orders easily</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Save your favorites</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Personal styling advice</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LuxeHair</h3>
+                    <p>Bringing luxury hair to every woman across Nigeria</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/2348012345678" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +234 801 234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@luxehair.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxeHair. All rights reserved.</p>
+                <p>Crafted with <i class="fas fa-heart"></i> for beautiful hair lovers everywhere</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/2348012345678?text=Hello%20LuxeHair!%20I%20need%20help" class="whatsapp-button" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

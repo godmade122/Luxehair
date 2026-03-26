@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - LuxeHair</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+        
+        .admin-sidebar {
+            background-color: var(--dark-color);
+            color: white;
+            padding: var(--spacing-lg);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            width: 250px;
+        }
+        
+        .admin-sidebar h3 {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .admin-sidebar ul {
+            list-style: none;
+        }
+        
+        .admin-sidebar li {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .admin-sidebar a {
+            color: #ccc;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm);
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+        
+        .admin-sidebar a:hover,
+        .admin-sidebar a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .admin-main {
+            margin-left: 250px;
+            padding: var(--spacing-lg);
+        }
+        
+        .admin-header {
+            background-color: white;
+            padding: var(--spacing-lg);
+            border-radius: 10px;
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .stat-card {
+            background-color: white;
+            padding: var(--spacing-lg);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .stat-card h4 {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .stat-change {
+            color: var(--success-color);
+            font-size: var(--font-size-sm);
+            margin-top: var(--spacing-sm);
+        }
+        
+        .table-container {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .table-header {
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        table th {
+            background-color: var(--accent-color);
+            padding: var(--spacing-md);
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        table td {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        table tr:hover {
+            background-color: #f9f7f4;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .btn-sm {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            transition: var(--transition);
+        }
+        
+        .btn-edit {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-delete {
+            background-color: var(--error-color);
+            color: white;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: var(--spacing-lg);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .admin-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: var(--spacing-md);
+            }
+            
+            .admin-main {
+                margin-left: 0;
+                padding: var(--spacing-md);
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <h3><i class="fas fa-crown"></i> LuxeHair Admin</h3>
+            <ul>
+                <li><a href="#dashboard" class="nav-item active" onclick="showSection('dashboard')"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                <li><a href="#products" class="nav-item" onclick="showSection('products')"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="#orders" class="nav-item" onclick="showSection('orders')"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                <li><a href="#users" class="nav-item" onclick="showSection('users')"><i class="fas fa-users"></i> Users</a></li>
+                <li><a href="#settings" class="nav-item" onclick="showSection('settings')"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Back to Store</a></li>
+            </ul>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <div class="admin-header">
+                <h1>Admin Dashboard</h1>
+                <div>
+                    <span>Welcome, Admin!</span>
+                </div>
+            </div>
+            
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section">
+                <h2>Dashboard Overview</h2>
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h4>Total Orders</h4>
+                        <div class="stat-value">245</div>
+                        <div class="stat-change">+12% this month</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Total Revenue</h4>
+                        <div class="stat-value">₦8.5M</div>
+                        <div class="stat-change">+8% this month</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Total Products</h4>
+                        <div class="stat-value">48</div>
+                        <div class="stat-change">+3 new products</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Total Users</h4>
+                        <div class="stat-value">1,285</div>
+                        <div class="stat-change">+52 new users</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Products Section -->
+            <section id="products" class="admin-section" style="display:none;">
+                <div class="table-header">
+                    <h2>Manage Products</h2>
+                    <button class="cta-button" onclick="openAddProductModal()">+ Add Product</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTable">
+                            <!-- Products will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Orders Section -->
+            <section id="orders" class="admin-section" style="display:none;">
+                <div class="table-header">
+                    <h2>Manage Orders</h2>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTable">
+                            <!-- Orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Users Section -->
+            <section id="users" class="admin-section" style="display:none;">
+                <div class="table-header">
+                    <h2>Manage Users</h2>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Joined</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTable">
+                            <!-- Users will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Settings Section -->
+            <section id="settings" class="admin-section" style="display:none;">
+                <h2>Settings</h2>
+                <div class="table-container" style="padding: var(--spacing-lg);">
+                    <h3>Store Settings</h3>
+                    <div class="form-group" style="margin: var(--spacing-lg) 0;">
+                        <label>Store Name</label>
+                        <input type="text" value="LuxeHair" class="form-input">
+                    </div>
+                    <div class="form-group" style="margin: var(--spacing-lg) 0;">
+                        <label>Email</label>
+                        <input type="email" value="info@luxehair.com" class="form-input">
+                    </div>
+                    <div class="form-group" style="margin: var(--spacing-lg) 0;">
+                        <label>Phone</label>
+                        <input type="tel" value="+234 801 234 5678" class="form-input">
+                    </div>
+                    <button class="cta-button" onclick="saveSettings()">Save Settings</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Add Product Modal -->
+    <div class="modal" id="addProductModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Product</h2>
+                <button class="close-btn" onclick="closeModal('addProductModal')">×</button>
+            </div>
+            <form id="addProductForm">
+                <div class="form-group" style="margin-bottom: var(--spacing-lg);">
+                    <label>Product Name</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group" style="margin-bottom: var(--spacing-lg);">
+                    <label>Category</label>
+                    <select required>
+                        <option>Extensions</option>
+                        <option>Wig</option>
+                        <option>Closure</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: var(--spacing-lg);">
+                    <label>Price</label>
+                    <input type="number" required>
+                </div>
+                <div class="form-group" style="margin-bottom: var(--spacing-lg);">
+                    <label>Stock Quantity</label>
+                    <input type="number" required>
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Add Product</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.admin-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+            
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Load data for the section
+            if (sectionId === 'products') loadProducts();
+            if (sectionId === 'orders') loadOrders();
+            if (sectionId === 'users') loadUsers();
+        }
+        
+        function loadProducts() {
+            const table = document.getElementById('productsTable');
+            table.innerHTML = products.map(p => `
+                <tr>
+                    <td>${p.name}</td>
+                    <td>${p.category}</td>
+                    <td>₦${p.price.toLocaleString()}</td>
+                    <td>50</td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn-sm btn-edit">Edit</button>
+                            <button class="btn-sm btn-delete">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function loadOrders() {
+            const table = document.getElementById('ordersTable');
+            const orders = [
+                { id: 'ORD001', customer: 'Zainab M.', amount: '₦95,000', status: 'Delivered', date: '2024-02-15' },
+                { id: 'ORD002', customer: 'Amara O.', amount: '₦120,500', status: 'Processing', date: '2024-02-18' },
+                { id: 'ORD003', customer: 'Chioma N.', amount: '₦65,000', status: 'Shipped', date: '2024-02-19' }
+            ];
+            
+            table.innerHTML = orders.map(o => `
+                <tr>
+                    <td>${o.id}</td>
+                    <td>${o.customer}</td>
+                    <td>${o.amount}</td>
+                    <td><span style="color: var(--primary-color); font-weight: 600;">${o.status}</span></td>
+                    <td>${o.date}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn-sm btn-edit">View</button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function loadUsers() {
+            const table = document.getElementById('usersTable');
+            const users = [
+                { name: 'Zainab M.', email: 'zainab@email.com', phone: '+234 901 234 5678', joined: '2024-01-15' },
+                { name: 'Amara O.', email: 'amara@email.com', phone: '+234 902 345 6789', joined: '2024-01-20' },
+                { name: 'Chioma N.', email: 'chioma@email.com', phone: '+234 903 456 7890', joined: '2024-02-01' }
+            ];
+            
+            table.innerHTML = users.map(u => `
+                <tr>
+                    <td>${u.name}</td>
+                    <td>${u.email}</td>
+                    <td>${u.phone}</td>
+                    <td>${u.joined}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn-sm btn-delete">Block</button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function openAddProductModal() {
+            document.getElementById('addProductModal').classList.add('active');
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+        
+        function saveSettings() {
+            alert('Settings saved successfully!');
+        }
+    </script>
+</body>
+</html>

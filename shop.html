@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - LuxeHair Hair Extensions & Wigs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <span>LuxeHair</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link active">Shop</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+                <a href="register.html" class="icon-link" title="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link cart-icon" title="Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="register.html">Account</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Shop Our Collection</h1>
+        <p>Premium Hair Extensions & Wigs</p>
+    </section>
+
+    <!-- Main Shop Content -->
+    <div class="shop-container">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+            <div class="filter-header">
+                <h3>Filters</h3>
+                <button class="clear-filters" id="clearFilters">Clear All</button>
+            </div>
+
+            <!-- Texture Filter -->
+            <div class="filter-group">
+                <h4>Hair Texture</h4>
+                <div class="filter-options">
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="straight" class="texture-filter">
+                        <span>Straight</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="body-wave" class="texture-filter">
+                        <span>Body Wave</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="curly" class="texture-filter">
+                        <span>Curly</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="deep-wave" class="texture-filter">
+                        <span>Deep Wave</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="loose-wave" class="texture-filter">
+                        <span>Loose Wave</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="kinky" class="texture-filter">
+                        <span>Kinky Curly</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Length Filter -->
+            <div class="filter-group">
+                <h4>Hair Length</h4>
+                <div class="filter-options">
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="12" class="length-filter">
+                        <span>12 inches</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="14" class="length-filter">
+                        <span>14 inches</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="16" class="length-filter">
+                        <span>16 inches</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="18" class="length-filter">
+                        <span>18 inches</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="20" class="length-filter">
+                        <span>20 inches</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="22" class="length-filter">
+                        <span>22+ inches</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Price Filter -->
+            <div class="filter-group">
+                <h4>Price Range</h4>
+                <div class="price-filter">
+                    <input type="range" id="priceRange" min="0" max="150000" step="5000" value="150000">
+                    <div class="price-display">
+                        <span>₦0 - ₦<span id="priceValue">150000</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Type Filter -->
+            <div class="filter-group">
+                <h4>Product Type</h4>
+                <div class="filter-options">
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="extensions" class="type-filter">
+                        <span>Extensions</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="wig" class="type-filter">
+                        <span>Wigs</span>
+                    </label>
+                    <label class="filter-checkbox">
+                        <input type="checkbox" value="closure" class="type-filter">
+                        <span>Closures</span>
+                    </label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Products Grid -->
+        <section class="shop-products">
+            <div class="products-header">
+                <p class="product-count">Showing <span id="productCount">12</span> products</p>
+                <div class="sort-dropdown">
+                    <select id="sortBy">
+                        <option value="featured">Featured</option>
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+
+            <div class="no-products" id="noProducts" style="display:none;">
+                <p>No products found matching your filters.</p>
+                <button class="view-all-btn" id="resetFilters">Reset Filters</button>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be added here by JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LuxeHair</h3>
+                    <p>Bringing luxury hair to every woman across Nigeria</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/2348012345678" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +234 801 234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@luxehair.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxeHair. All rights reserved.</p>
+                <p>Crafted with <i class="fas fa-heart"></i> for beautiful hair lovers everywhere</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/2348012345678?text=Hello%20LuxeHair!%20I%20need%20help" class="whatsapp-button" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/products-data.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

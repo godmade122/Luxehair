@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - LuxeHair</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <span>LuxeHair</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="shop.html" class="icon-link" title="Search">
+                    <i class="fas fa-search"></i>
+                </a>
+                <a href="register.html" class="icon-link" title="Account">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link cart-icon active" title="Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="register.html">Account</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Shopping Cart</h1>
+        <p>Review Your Items</p>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-wrapper">
+                <!-- Cart Items -->
+                <div class="cart-items">
+                    <div class="cart-header">
+                        <h2>Your Items</h2>
+                        <p class="item-count"><span id="itemCount">0</span> items in cart</p>
+                    </div>
+
+                    <div class="items-list" id="cartItemsList">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+
+                    <!-- Empty Cart Message -->
+                    <div class="empty-cart" id="emptyCart" style="display: none;">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Discover our premium hair collection and start shopping!</p>
+                        <a href="shop.html" class="cta-button">Continue Shopping</a>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <aside class="order-summary">
+                    <h3>Order Summary</h3>
+                    
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span id="subtotal">₦0</span>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>Shipping</span>
+                        <span id="shipping">₦0</span>
+                    </div>
+
+                    <div class="summary-item">
+                        <label for="couponInput">Discount Code</label>
+                        <div class="coupon-input">
+                            <input type="text" id="couponInput" placeholder="Enter coupon code">
+                            <button id="applyCoupon" class="apply-btn">Apply</button>
+                        </div>
+                    </div>
+
+                    <div class="summary-item discount" id="discountItem" style="display: none;">
+                        <span>Discount</span>
+                        <span id="discountAmount">-₦0</span>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span id="total">₦0</span>
+                    </div>
+
+                    <button class="checkout-btn" id="checkoutBtn" onclick="window.location.href='checkout.html'">Proceed to Checkout</button>
+                    <a href="shop.html" class="continue-shopping-btn">Continue Shopping</a>
+
+                    <!-- Trust Badges -->
+                    <div class="cart-trust-badges">
+                        <div class="badge">
+                            <i class="fas fa-lock"></i>
+                            <small>Secure Checkout</small>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-truck"></i>
+                            <small>Free Shipping Over ₦50K</small>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-undo"></i>
+                            <small>30-Day Returns</small>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section class="recommendations">
+        <div class="container">
+            <h2>Complete Your Look</h2>
+            <p>Add these popular items to your order</p>
+            <div class="products-grid" id="recommendedProducts">
+                <!-- Recommended products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LuxeHair</h3>
+                    <p>Bringing luxury hair to every woman across Nigeria</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/2348012345678" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +234 801 234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@luxehair.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LuxeHair. All rights reserved.</p>
+                <p>Crafted with <i class="fas fa-heart"></i> for beautiful hair lovers everywhere</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/2348012345678?text=Hello%20LuxeHair!%20I%20need%20help" class="whatsapp-button" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/products-data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
