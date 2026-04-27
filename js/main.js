@@ -1,12 +1,13 @@
 // Main JavaScript for LuxeHair Website
 
 // Toggle Mobile Menu
-document.addEventListener('DOMContentLoaded', () => {
+function initMobileMenu() {
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault();
             hamburger.classList.toggle('active');
             mobileMenu.classList.toggle('active');
         });
@@ -18,20 +19,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenu.classList.remove('active');
             });
         });
-    }
-    
-    // Newsletter form
-    const newsletterForm = document.getElementById('newsletterForm');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = newsletterForm.querySelector('input').value;
-            if (email) {
-                alert('Thank you for subscribing! Check your email for exclusive offers.');
-                newsletterForm.reset();
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
             }
         });
     }
+}
+
+// Initialize on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+} else {
+    initMobileMenu();
+}
+
+// Newsletter form
+const newsletterForm = document.getElementById('newsletterForm');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = newsletterForm.querySelector('input').value;
+        if (email) {
+            alert('Thank you for subscribing! Check your email for exclusive offers.');
+            newsletterForm.reset();
+        }
+    });
+}
+
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            e.preventDefault();
+            const element = document.querySelector(href);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
 });
 
 // Smooth scroll for internal links
